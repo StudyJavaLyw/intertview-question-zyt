@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header, footer {
+        height: 60px;
+      }
+      header {
+        background: red;
+      }
+      main {
+        display: flex;
+      }
+      .left, .right, .center {
+        height: 600px;
+      }
+      .left, .right {
+        width: 200px;
+        background: pink;
+      }
+      .center {
+        flex-grow: 1;
+        display: flex;;
+        flex-direction: column;
+      }
+      .content_top {
+        flex-grow: 1;
+        background: rebeccapurple;
+      }
+      .content_bottom {
+        height: 80px;
+        background: black;
+      }
+      footer {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="left"></div>
+      <div class="center">
+        <div class="content_top"></div>
+        <div class="content_bottom"></div>
+      </div>
+      <div class="right"></div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
