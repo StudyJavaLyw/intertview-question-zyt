@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="table" border="1" cellspacing="0">
+      <tr class="header-tr">
+        <th class="header-class">班级</th>
+        <th class="header-name">姓名</th>
+        <th class="header-subject">科目</th>
+        <th class="header-score">分数</th>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-1" class="body-class">一班</td>
+        <td id="body-name-1" class="body-name">小明</td>
+        <td id="body-subject-1" class="body-subjcet">语文</td>
+        <td id="body-score-1" class="body-score">90</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-2" class="body-class">一班</td>
+        <td id="body-name-2" class="body-name">小明</td>
+        <td id="body-subject-2" class="body-subjcet">数学</td>
+        <td id="body-score-2" class="body-score">88</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-2" class="body-class">一班</td>
+        <td id="body-name-2" class="body-name">小明</td>
+        <td id="body-subject-2" class="body-subjcet">英語</td>
+        <td id="body-score-2" class="body-score">40</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-3" class="body-class">一班</td>
+        <td id="body-name-3" class="body-name">小红</td>
+        <td id="body-subject-3" class="body-subjcet">语文</td>
+        <td id="body-score-3" class="body-score">10</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-4" class="body-class">一班</td>
+        <td id="body-name-4" class="body-name">小红</td>
+        <td id="body-subject-4" class="body-subjcet">数学</td>
+        <td id="body-score-4" class="body-score">20</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-5" class="body-class">一班</td>
+        <td id="body-name-5" class="body-name">小红</td>
+        <td id="body-subject-5" class="body-subjcet">英语</td>
+        <td id="body-score-5" class="body-score">30</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-1" class="body-class">二班</td>
+        <td id="body-name-1" class="body-name">小绿</td>
+        <td id="body-subject-1" class="body-subjcet">语文</td>
+        <td id="body-score-1" class="body-score">83</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-2" class="body-class">二班</td>
+        <td id="body-name-2" class="body-name">小绿</td>
+        <td id="body-subject-2" class="body-subjcet">数学</td>
+        <td id="body-score-2" class="body-score">83</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-2" class="body-class">二班</td>
+        <td id="body-name-2" class="body-name">小绿</td>
+        <td id="body-subject-2" class="body-subjcet">英語</td>
+        <td id="body-score-2" class="body-score">46</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-3" class="body-class">二班</td>
+        <td id="body-name-3" class="body-name">小黑</td>
+        <td id="body-subject-3" class="body-subjcet">语文</td>
+        <td id="body-score-3" class="body-score">8</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-4" class="body-class">二班</td>
+        <td id="body-name-4" class="body-name">小黑</td>
+        <td id="body-subject-4" class="body-subjcet">数学</td>
+        <td id="body-score-4" class="body-score">23</td>
+      </tr>
+      <tr class="body-tr">
+        <td id="body-class-5" class="body-class">二班</td>
+        <td id="body-name-5" class="body-name">小黑</td>
+        <td id="body-subject-5" class="body-subjcet">英语</td>
+        <td id="body-score-5" class="body-score">26</td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    console.log('一班三科总分：', everyClassScore('一班'))
+    console.log('二班三科总分：', everyClassScore('二班'))
+
+    console.log('小明的三科总分', everyPeopleScore('小明'))
+    console.log('小红的三科总分', everyPeopleScore('小红'))
+    console.log('小绿的三科总分', everyPeopleScore('小绿'))
+    console.log('小黑的三科总分', everyPeopleScore('小黑'))
+
+    console.log('全年级的语文总分', allClassSingleSubjectScore('语文'))
+    console.log('全年级的数学总分', allClassSingleSubjectScore('数学'))
+    console.log('全年级的英语总分', allClassSingleSubjectScore('英语'))
+
+    function everyClassScore(className) {
+      let result = 0
+      document.querySelectorAll('.body-class').forEach(classItem => {
+        if (classItem.innerHTML === className)
+          classItem.parentNode.childNodes.forEach(el => {
+            if (el.className === 'body-score') result += parseFloat(el.innerHTML)
+          })
+      })
+      return result
+    }
+
+    function everyPeopleScore(name) {
+      let result = 0
+      document.querySelectorAll('.body-name').forEach(nameEl => {
+        if (nameEl.innerHTML === name)
+          nameEl.parentNode.childNodes.forEach(el => {
+            if (el.className === 'body-score') result += parseFloat(el.innerHTML)
+          })
+      })
+      return result
+    }
+
+    function allClassSingleSubjectScore(subjectName) {
+      let result = 0
+      document.querySelectorAll('.body-subjcet').forEach(nameEl => {
+        if (nameEl.innerHTML === subjectName)
+          nameEl.parentNode.childNodes.forEach(el => {
+            if (el.className === 'body-score') result += parseFloat(el.innerHTML)
+          })
+      })
+      return result
+    }
+  </script>
+</html>
